@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.training-image.grayscale {
+    filter: grayscale(100%);
+}
+
+.training-image.portrait {
+    transform: rotate(0deg);
+    width: 450px;
+    height: 500px;
+}
+
+.training-image.landscape {
+    transform: rotate(0deg);
+    width: 610px;
+    height: 450px;
+}
