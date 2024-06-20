@@ -9,6 +9,7 @@ use App\Charts\MonthlyUsersChart;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\DB;
+use App\Notifications\CopiesExceededNotification;
 
 class UserController extends Controller
 {
@@ -50,15 +51,38 @@ class UserController extends Controller
             $predictions = [];
         }
 
+        // Save predictions to the database
+        foreach ($predictions as $day => $predictedCopies) {
+            DB::table('predictions')->updateOrInsert(
+                ['day' => $day],
+                ['predicted_copies' => $predictedCopies, 'created_at' => now(), 'updated_at' => now()]
+            );
+        }
+
+        // Calculate total predicted copies
+        $totalPredictedCopies = array_sum($predictions);
+
         // Usage analytics logic
         $activities = DB::table('user_activities')->select([
             DB::raw('HOUR(created_at) as hour'),
             DB::raw('COUNT(*) as count')
         ])->groupBy('hour')->get();
 
+        // Get the total number of copies printed today
+        $todayCopies = DB::table('trainings')
+            ->whereDate('created_at', now()->toDateString())
+            ->sum('copies');
+
+        // Check if today's copies exceed the predicted total for the week
+        if ($todayCopies > $totalPredictedCopies) {
+            $user = auth()->user(); // Or any user you want to notify
+            $user->notify(new CopiesExceededNotification($totalPredictedCopies, $todayCopies));
+        }
+
         // Return the view with both sets of data
         return view('user.admin-sales', [
             'predictions' => $predictions,
+            'totalPredictedCopies' => $totalPredictedCopies,
             'activities' => $activities
         ]);
     }

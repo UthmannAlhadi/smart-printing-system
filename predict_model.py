@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 def load_model_and_predict():
     try:
         # Load the model
-        model = joblib.load('C:/laragon/www/Test1/storage/app/predictive_model.pkl')
+        model = joblib.load('C:/laragon/www/smart-printing-system/storage/app/predictive_model.pkl')
 
         # Get the current date
         today = datetime.now()

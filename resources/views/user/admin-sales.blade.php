@@ -88,7 +88,7 @@
           <div class="p-4 md:p-5">
             <div class="flex items-center gap-x-2">
               <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-                Predicted Copies Weekly
+                Predicted Copies Weekly: <span>{{ $totalPredictedCopies }}</span>
               </p>
             </div>
             <canvas id="predictionsChart"></canvas>

@@ -7,15 +7,44 @@
     <div class="flex flex-row items-center justify-end ml-auto px-6"> <!-- Added ml-auto to push it to the right -->
 
       <!-- Notification Button -->
-      <button type="button"
-        class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
-        <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
-          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
-        </svg>
-      </button>
+      <div class="hs-dropdown relative inline-flex" id="notificationDropdown">
+        <button id="hs-dropdown-noti-header" type="button"
+          class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700">
+          <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+          </svg>
+          <span id="notificationIcon">
+            @if (auth()->user()->unreadNotifications->count() > 0)
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red"
+                class="bi bi-1-circle" viewBox="0 0 16 16">
+                <path
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383z" />
+              </svg>
+            @endif
+          </span>
+        </button>
+        <div
+          class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-2 mt-2 dark:bg-neutral-800 dark:border dark:border-neutral-700"
+          aria-labelledby="hs-dropdown-with-header">
+          <div class="py-3 px-5 -m-2 bg-gray-100 rounded-t-lg dark:bg-neutral-700">
+            <p class="text-sm text-gray-500 dark:text-neutral-400">Notifications</p>
+          </div>
+          <div class="mt-2 py-2 first:pt-0 last:pb-0" id="notificationsList">
+            @forelse(auth()->user()->notifications as $notification)
+              <div class="{{ $notification->read_at ? 'text-gray-600' : 'text-black' }}">
+                {{ $notification->data['message'] }}
+              </div>
+            @empty
+              <p>No notifications</p>
+            @endforelse
+          </div>
+        </div>
+      </div>
+
+
 
       <!-- Dark Mode Button -->
       <button type="button"
@@ -88,4 +117,34 @@
       </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById('hs-dropdown-noti-header').addEventListener('click', function() {
+      fetch('{{ route('notifications.markAsRead') }}', {
+          method: 'POST',
+          headers: {
+            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({}),
+        }).then(response => response.json())
+        .then(data => {
+          console.log(data.message);
+          // Remove the red dot icon
+          document.getElementById('notificationIcon').innerHTML = '';
+          // Update the notifications list
+          let notifications = data.notifications;
+          let notificationsList = document.getElementById('notificationsList');
+          notificationsList.innerHTML = '';
+          notifications.forEach(notification => {
+            let div = document.createElement('div');
+            div.className = notification.read_at ? 'text-gray-600' : 'text-black';
+            div.innerText = notification.data.message;
+            notificationsList.appendChild(div);
+          });
+        }).catch(error => console.error('Error:', error));
+    });
+  </script>
+
+
 </header>

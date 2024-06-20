@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Load the CSV file
-df = pd.read_csv('user_activities.csv')
+# Load the JSON file
+df = pd.read_json('user_activities.json')
 
 # Process and analyze data
 df['created_at'] = pd.to_datetime(df['created_at'])
@@ -16,5 +16,5 @@ activity_by_hour.plot(kind='bar')
 plt.title('User Activity by Hour')
 plt.xlabel('Hour of the Day')
 plt.ylabel('Activity Count')
-plt.savefig('user_activity_by_hour.png')
+plt.savefig('public/user_activity_by_hour.png')  # Save in public directory
 plt.show()
