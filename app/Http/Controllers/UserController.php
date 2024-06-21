@@ -10,6 +10,7 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\DB;
 use App\Notifications\CopiesExceededNotification;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -77,6 +78,9 @@ class UserController extends Controller
         if ($todayCopies > $totalPredictedCopies) {
             $user = auth()->user(); // Or any user you want to notify
             $user->notify(new CopiesExceededNotification($totalPredictedCopies, $todayCopies));
+
+            // Set session variable to indicate copies exceeded
+            session()->flash('copies_exceeded', true);
         }
 
         // Return the view with both sets of data
@@ -86,6 +90,8 @@ class UserController extends Controller
             'activities' => $activities
         ]);
     }
+
+
 
 
 

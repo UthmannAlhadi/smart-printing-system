@@ -119,10 +119,15 @@
               </ul>
               <div class="mt-4">
                 <h2 class="text-lg font-semibold">Price: RM{{ number_format($totalPrice, 2) }}</h2>
+                <input type="hidden" id="totalPrice" value="{{ $totalPrice }}">
+              </div>
+              <div class="mt-4">
+
               </div>
             </div>
           </div>
         </div>
+        <span class="text-black  text-opacity-70 text-xs">Stripe only allowed for price above RM 0.50</span>
       </div>
     </div>
   </div>
@@ -198,13 +203,6 @@
             <form id="paymentForm" action="{{ route('checkout') }}" method="GET" enctype="multipart/form-data">
               @csrf
               <div class="flex flex-col gap-y-3">
-                {{-- <div class="flex">
-                  <input type="radio" name="payment_method" value="cash"
-                    class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                    id="hs-radio-vertical-group-1" required>
-                  <label for="hs-radio-vertical-group-1"
-                    class="text-sm text-gray-500 ms-2 dark:text-neutral-400">Cash</label>
-                </div> --}}
                 <div class="flex">
                   <input type="radio" name="payment_method" value="stripe"
                     class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
@@ -312,6 +310,19 @@
       const closeQRCodeModalButton = document.getElementById('closeQRCodeModalButton');
       const hsVerticallyCenteredModal = document.getElementById('hs-vertically-centered-modal');
       const donePaymentButton = document.getElementById('donePaymentButton');
+      const stripePaymentOption = document.getElementById('hs-radio-vertical-group-2');
+      const qrPaymentOption = document.getElementById('hs-radio-vertical-group-3');
+
+      // Check total price and adjust payment methods visibility
+      const totalPrice = parseFloat(document.getElementById('totalPrice').value);
+
+      if (totalPrice <= 0.50) {
+        stripePaymentOption.parentElement.style.display = 'none'; // Hide Stripe payment option
+        qrPaymentOption.checked = true; // Select QR Pay by default
+      } else {
+        stripePaymentOption.parentElement.style.display = 'flex'; // Show Stripe payment option
+      }
+
 
       submitPaymentFormButton.addEventListener('click', () => {
         const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');

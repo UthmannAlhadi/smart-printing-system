@@ -16,6 +16,9 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravelcollective/html": "^6.4",
+        "phpoffice/phpword": "^1.2",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.6",
         "spatie/pdf-to-image": "^1.2",
         "stripe/stripe-php": "^14.8",
         "symfony/process": "^6.4"

@@ -80,11 +80,10 @@
       </div>
       <!-- End Card Grid -->
 
-
-      <div class="grid grid-cols-2 ">
+      <div class="grid grid-cols-2 gap-x-4">
         <!-- Predicted Copies Chart -->
         <div
-          class="flex flex-col mx-2 bg-white drop-shadow-lg shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          class="flex flex-col  bg-white drop-shadow-lg shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
           <div class="p-4 md:p-5">
             <div class="flex items-center gap-x-2">
               <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -98,7 +97,7 @@
 
         <!-- User Activity Chart -->
         <div
-          class="flex flex-col mx-2 bg-white drop-shadow-lg shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+          class="flex flex-col bg-white drop-shadow-lg shadow-sm rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
           <div class="p-4 md:p-5">
             <div class="flex items-center gap-x-2">
               <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
@@ -112,17 +111,83 @@
       </div>
     </div>
 
+    <!-- Modal for notifications -->
+    <div id="hs-task-created-alert"
+      class="hs-overlay hidden fixed inset-0 z-[100] justify-center items-center bg-gray-900 bg-opacity-50">
+      <div class="relative flex flex-col bg-white shadow-lg rounded-xl dark:bg-neutral-900">
+        <div class="absolute top-2 right-2">
+          <button type="button"
+            class="flex justify-center items-center size-7 text-sm font-semibold rounded-lg border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-transparent dark:hover:bg-neutral-700"
+            data-hs-overlay="#hs-task-created-alert">
+            <span class="sr-only">Close</span>
+            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 sm:p-10 text-center overflow-y-auto">
+          <!-- Icon -->
+          <span
+            class="mb-4 inline-flex justify-center items-center size-[46px] rounded-full border-4 border-gray-50 bg-gray-50 text-green-500 dark:bg-green-700 dark:border-green-600 dark:text-green-100">
+            <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              fill="red" viewBox="0 0 16 16">
+              <path
+                d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z" />
+            </svg>
+          </span>
+          <!-- End Icon -->
+          <h3 class="mb-2 text-xl font-bold text-gray-800 dark:text-neutral-200">
+            The number of printed copies has exceeded the predicted limit!
+          </h3>
+          <p class="text-gray-500 dark:text-neutral-500">
+            You can see the predicted amount of copies in your sales dashboard.
+          </p>
+          <div class="mt-6 flex justify-center gap-x-4">
+            <button type="button"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-800 dark:text-white dark:hover:bg-neutral-800"
+              data-hs-overlay="#hs-task-created-alert">
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+
 
   {{-- <script src="{{ $chart->cdn() }}"></script>
 
   {{ $chart->script() }} --}}
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> --}}
   {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"> --}}
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date().toISOString().split('T')[0];
+      const lastShownDate = localStorage.getItem('lastShownDate');
+
+      // Check if copies exceeded and show modal
+      @if (session('copies_exceeded'))
+        showModal();
+      @endif
+
+      function showModal() {
+        const modal = document.getElementById('hs-task-created-alert');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+
+        // Add event listener to close button
+        // document.querySelector('[data-hs-overlay="#hs-task-created-alert"]').addEventListener('click', function() {
+        //   modal.classList.add('hidden');
+        //   modal.classList.remove('flex');
+        // });
+      }
+
       // Predicted Copies Chart
       var ctxPredictions = document.getElementById('predictionsChart').getContext('2d');
       var predictions = @json($predictions);
@@ -180,6 +245,5 @@
       });
     });
   </script>
-
 
 </x-app-layout>
