@@ -110,13 +110,10 @@
         </div>
         <!-- End Card -->
       </div>
-
-
-
-
     </div>
 
   </div>
+
   {{-- <script src="{{ $chart->cdn() }}"></script>
 
   {{ $chart->script() }} --}}
