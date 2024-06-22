@@ -6,10 +6,10 @@
     @csrf
 
     <div
-      class="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+      class="flex w-full mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-3xl drop-shadow-lg">
       <!-- display left image -->
-      <div class="hidden bg-cover lg:block lg:w-1/2"
-        style="background-image: url('https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByaW50aW5nfGVufDB8fDB8fHww');">
+      <div class="bg-cover lg:block lg:w-1/2 flex justify-end items-center">
+        <img src="{{ asset('img/ziegers.png') }}" class="mx-auto" alt="" width="400">
       </div>
 
       <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
@@ -110,11 +110,11 @@
           </div>
 
           <!-- Register? -->
-          <div class="flex items-center justify-end mt-4">
+          <div class="flex items-center justify-evenly mt-4">
             @if (Route::has('register'))
-              <a class="underline text-sm mx-4 text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('register') }}">
-                {{ __('Register?') }}
+                {{ __('Register') }}
               </a>
             @endif
 
@@ -122,13 +122,16 @@
             @if (Route::has('password.request'))
               <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 href="{{ route('password.request') }}">
-                {{ __('Forgot your password?') }}
+                {{ __('Forgot password') }}
               </a>
             @endif
 
-            <x-primary-button class="ms-3">
-              {{ __('Log in') }}
-            </x-primary-button>
+            <div class="">
+              <x-primary-button class="ms-3">
+                {{ __('Log in') }}
+              </x-primary-button>
+            </div>
+
           </div>
         </form>
         <!-- End Form -->

@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +22,15 @@ use App\Http\Controllers\NotificationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified_or_guest'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified_or_guest'])->group(function () {
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,7 +51,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/admin-set-printer', [PrintJobController::class, 'displayAdminSetPrinter'])->name('user.admin-set-printer');
     Route::get('/user/track-order', [PrintJobController::class, 'displayTrackOrder'])->name('user.track-order');
     Route::get('/user/admin-track-order', [PrintJobController::class, 'displayAdminTrackOrder'])->name('user.admin-track-order');
-
 
     // Upload File
     Route::get('/user/print-upload', [TrainingController::class, 'getTrainingList'])->name('user.print-upload');
@@ -78,28 +79,34 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin-track-order', [StripePaymentController::class, 'adminTrackOrder'])->name('user.admin-track-order');
     Route::post('/update-order-progress', [StripePaymentController::class, 'updateOrderProgress'])->name('update.order.progress');
 
-
-
-
-
-
-    // Dashboard Admin
-
-    // Route::get('/user/admin-sales', [UserController::class, 'predictPython'])->name('user.admin-sales');
-
-
     // Admin Sales
     Route::get('/user/admin-sales', [UserController::class, 'index'])->name('user.admin-sales');
     Route::get('/user/admin-sales', [UserController::class, 'getPredictions'])->name('user.admin-sales');
 
-
-
-
     // Set Notification
     Route::post('/notifications/mark-as-read', [NotificationController::class, 'markAsRead'])->name('notifications.markAsRead');
-
-
-
 });
+
+// Registration routes
+Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+Route::post('register', [RegisteredUserController::class, 'store']);
+
+// Guest login routes
+Route::get('/user/guest-login', [PrintJobController::class, 'displayGuestLogin'])->name('user.guest-login');
+Route::post('/guest-login', [GuestController::class, 'loginAsGuest'])->name('guest.login');
+
+// Email verification routes
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+    ->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('status', 'verification-link-sent');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 require __DIR__ . '/auth.php';

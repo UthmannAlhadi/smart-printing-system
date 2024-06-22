@@ -82,13 +82,13 @@
           <a href="{{ route('user.training-form') }}"
             class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.training-form') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="flex-shrink-0 size-4">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="M3 15h6" />
+              <path d="M6 12v6" />
             </svg>
             Print Job
           </a>
@@ -98,13 +98,10 @@
           <a href="{{ route('user.track-order') }}"
             class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.track-order') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" width="24"
+              height="24" stroke="currentColor" class="flex-shrink-0 size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
             </svg>
             Track Order
           </a>
@@ -114,11 +111,14 @@
           <a href="{{ route('user.print-history') }}"
             class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.print-history') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-            <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
-              <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="flex-shrink-0 size-4">
+              <rect width="8" height="4" x="8" y="2" rx="1" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5" />
+              <path d="M4 13.5V6a2 2 0 0 1 2-2h2" />
+              <path
+                d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
             </svg>
             Print History
           </a>
@@ -137,113 +137,151 @@
             Profile
           </a>
         </li>
-      @else
-        @if (auth()->user()->role == 'admin')
-          <!-- Admin Print History Button -->
-          <li>
-            <a href="{{ route('user.admin-print-history') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+      @elseif (auth()->user()->role == 'guest')
+        <!-- Print Job Button -->
+        <li>
+          <a href="{{ route('user.training-form') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+              {{ Route::is('user.training-form') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="flex-shrink-0 size-4">
+              <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
+              <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+              <path d="M3 15h6" />
+              <path d="M6 12v6" />
+            </svg>
+            Print Job
+          </a>
+        </li>
+        <!-- Track Order Button -->
+        <li>
+          <a href="{{ route('user.track-order') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+              {{ Route::is('user.track-order') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              width="24" height="24" stroke="currentColor" class="flex-shrink-0 size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+            </svg>
+            Track Order
+          </a>
+        </li>
+        <!-- Profile Button -->
+        <li>
+          <a href="{{ route('profile.edit') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+              {{ Route::is('profile.edit') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="flex-shrink-0 size-5">
+              <path fill-rule="evenodd"
+                d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                clip-rule="evenodd" />
+            </svg>
+            Profile
+          </a>
+        </li>
+      @elseif (auth()->user()->role == 'admin')
+        <!-- Admin Print History Button -->
+        <li>
+          <a href="{{ route('user.admin-print-history') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-print-history') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Print History
-            </a>
-          </li>
-          <!-- Admin Track Order Button -->
-          <li>
-            <a href="{{ route('user.admin-track-order') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="flex-shrink-0 size-4">
+              <rect width="8" height="4" x="8" y="2" rx="1" />
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5.5" />
+              <path d="M4 13.5V6a2 2 0 0 1 2-2h2" />
+              <path
+                d="M13.378 15.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z" />
+            </svg>
+            Print History
+          </a>
+        </li>
+        <!-- Admin Track Order Button -->
+        <li>
+          <a href="{{ route('user.admin-track-order') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-track-order') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Track Order
-            </a>
-          </li>
-          <!-- Admin Update Order Button -->
-          <li>
-            <a href="{{ route('user.admin-update-order') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              width="24" height="24" stroke="currentColor" class="flex-shrink-0 size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+            </svg>
+            Track Order
+          </a>
+        </li>
+        <!-- Admin Update Order Button -->
+        <li>
+          <a href="{{ route('user.admin-update-order') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-update-order') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg class="flex-shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-              Update Order
-            </a>
-          </li>
-          <!-- Admin Sales Button -->
-          <li>
-            <a href="{{ route('user.admin-sales') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+              stroke="currentColor" class="flex-shrink-0 size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m6.75 12-3-3m0 0-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+
+            Update Order
+          </a>
+        </li>
+        <!-- Admin Sales Button -->
+        <li>
+          <a href="{{ route('user.admin-sales') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-sales') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="flex-shrink-0 size-5">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
-              </svg>
-              Sales
-            </a>
-          </li>
-          <!-- Admin Receipt Button -->
-          <li>
-            <a href="{{ route('user.admin-receipt') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="flex-shrink-0 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
+            </svg>
+            Sales
+          </a>
+        </li>
+        <!-- Admin Receipt Button -->
+        <li>
+          <a href="{{ route('user.admin-receipt') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-receipt') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" class="flex-shrink-0 size-5">
-                <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
-                <path d="M14 8H8" />
-                <path d="M16 12H8" />
-                <path d="M13 16H8" />
-              </svg>
-              Receipt
-            </a>
-          </li>
-          <!-- Admin Set Printer Button -->
-          <li>
-            <a href="{{ route('user.admin-set-printer') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="flex-shrink-0 size-5">
+              <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+              <path d="M14 8H8" />
+              <path d="M16 12H8" />
+              <path d="M13 16H8" />
+            </svg>
+            Receipt
+          </a>
+        </li>
+        <!-- Admin Set Printer Button -->
+        {{-- <li>
+          <a href="{{ route('user.admin-set-printer') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('user.admin-set-printer') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="flex-shrink-0 size-5">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
-              </svg>
-              Set Printer
-            </a>
-          </li>
-          <!-- Profile Button -->
-          <li>
-            <a href="{{ route('profile.edit') }}"
-              class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="flex-shrink-0 size-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0 1 10.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0 .229 2.523a1.125 1.125 0 0 1-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0 0 21 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 0 0-1.913-.247M6.34 18H5.25A2.25 2.25 0 0 1 3 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 0 1 1.913-.247m10.5 0a48.536 48.536 0 0 0-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5Zm-3 0h.008v.008H15V10.5Z" />
+            </svg>
+            Set Printer
+          </a>
+        </li> --}}
+        <!-- Profile Button -->
+        <li>
+          <a href="{{ route('profile.edit') }}"
+            class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm rounded-lg hover:bg-purple-500 dark:hover:bg-gray-900 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
                 {{ Route::is('profile.edit') ? 'bg-purple-500 text-white' : 'text-slate-700 dark:bg-gray-800' }}">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                class="flex-shrink-0 size-5">
-                <path fill-rule="evenodd"
-                  d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                  clip-rule="evenodd" />
-              </svg>
-              Profile
-            </a>
-          </li>
-        @endif
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+              class="flex-shrink-0 size-5">
+              <path fill-rule="evenodd"
+                d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                clip-rule="evenodd" />
+            </svg>
+            Profile
+          </a>
+        </li>
       @endif
     </ul>
   </nav>

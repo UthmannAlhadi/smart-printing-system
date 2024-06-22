@@ -70,6 +70,12 @@ class PrintJobController extends Controller
         return view('user.admin-track-order');
     }
 
+    public function displayGuestLogin()
+    {
+
+        return view('user.guest-login');
+    }
+
     public function index()
     {
         //
