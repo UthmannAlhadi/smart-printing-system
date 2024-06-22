@@ -30,7 +30,7 @@ class UserController extends Controller
         $scriptPath = base_path('predict_model.py');
 
         // Execute the Python script
-        $process = new Process(['python', $scriptPath]);
+        $process = new Process(['python3', $scriptPath]);
         $process->run();
 
         // Check if the process ran successfully
