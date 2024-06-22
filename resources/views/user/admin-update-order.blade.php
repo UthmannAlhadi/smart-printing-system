@@ -19,7 +19,7 @@
                   <div class="overflow-auto h-full custom-scrollbar">
                     <div class="min-w-full text-left text-sm font-light h-full">
                       <div class="border-b border-gray-400 font-medium dark:border-neutral-900">
-                        <div class="px-6 py-4">Update Order</div>
+                        <div class="px-6 py-4">Update Payment</div>
                       </div>
                       <div class="py-2">
                         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
