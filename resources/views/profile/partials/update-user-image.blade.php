@@ -13,7 +13,7 @@
 
   @if (auth()->user()->profile_image)
     <div class="mt-6">
-      <img src="{{ asset('storage/' . auth()->user()->profile_image) }}" alt="Profile Image"
+      <img src="{{ asset('profile_images/' . auth()->user()->profile_image) }}" alt="Profile Image"
         class="w-32 h-32 rounded-full border-2 border-slate-600">
     </div>
   @endif

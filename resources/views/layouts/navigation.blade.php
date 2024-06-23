@@ -53,7 +53,7 @@
       <div class="hs-dropdown relative inline-flex [--placement:bottom-right]">
         <button id="hs-dropdown-with-header" type="button"
           class="w-[2.375rem] h-[2.375rem] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full  text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-          @if (auth()->user()->profile_image) style="background-image: url('{{ asset('storage/' . auth()->user()->profile_image) }}'); background-size: cover;" @endif>
+          @if (auth()->user()->profile_image) style="background-image: url('{{ asset('profile_images/' . auth()->user()->profile_image) }}'); background-size: cover;" @endif>
           @if (!auth()->user()->profile_image)
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
               <path fill-rule="evenodd"
