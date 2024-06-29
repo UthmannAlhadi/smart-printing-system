@@ -101,7 +101,7 @@
           <div class="p-4 md:p-5">
             <div class="flex items-center gap-x-2">
               <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
-                User Activity by Hour
+                User Activity by Day of the Week
               </p>
             </div>
             <canvas id="userActivityChart"></canvas>
@@ -216,19 +216,22 @@
         }
       });
 
-      // User Activity Chart
+      // Ensure $activities contains the processed data for days of the week
       var ctxActivity = document.getElementById('userActivityChart').getContext('2d');
       var activities = @json($activities);
 
-      var activityLabels = activities.map(item => item.hour);
-      var activityData = activities.map(item => item.count);
+      var daysOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      var activityLabels = daysOrder;
+      var activityData = daysOrder.map(day => {
+        return activities[day] ? activities[day].count : 0;
+      });
 
       var userActivityChart = new Chart(ctxActivity, {
         type: 'line',
         data: {
           labels: activityLabels,
           datasets: [{
-            label: 'User Activity by Hour',
+            label: 'User Activity by Day of the Week',
             data: activityData,
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',

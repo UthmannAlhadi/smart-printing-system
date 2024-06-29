@@ -53,7 +53,7 @@
 
 
   <!-- Content -->
-  <div class="w-full px-4 sm:px-6 md:px-8 lg:ps-72 bg-gray-50">
+  <div class="w-full h-full px-4 min sm:px-6 md:px-8 lg:ps-72 bg-gray-50">
     {{ $slot }}
   </div>
   <!-- End Content -->

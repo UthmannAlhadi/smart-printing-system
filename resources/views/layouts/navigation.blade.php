@@ -1,6 +1,6 @@
 <header
   class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-[48] w-full bg-gray-50 text-sm py-2.5 sm:py-3 lg:ps-64 dark:bg-gray-800 dark:border-gray-700 border-gray-300">
-  <div class="w-full flex items-center justify-between sm:gap-x-3 sm:order-3">
+  <div class="w-full overflow-hidden flex items-center justify-between sm:gap-x-3 sm:order-3">
     <div class="w-full flex flex-row items-center justify-center">
     </div>
 

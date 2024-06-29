@@ -30,7 +30,7 @@ class UserController extends Controller
         $scriptPath = base_path('predict_model.py');
 
         // Execute the Python script
-        $process = new Process(['python3', $scriptPath]);
+        $process = new Process(['python', $scriptPath]);
         $process->run();
 
         // Check if the process ran successfully
@@ -65,9 +65,10 @@ class UserController extends Controller
 
         // Usage analytics logic
         $activities = DB::table('user_activities')->select([
-            DB::raw('HOUR(created_at) as hour'),
+            DB::raw('DAYNAME(created_at) as day_of_week'),
             DB::raw('COUNT(*) as count')
-        ])->groupBy('hour')->get();
+        ])->groupBy(DB::raw('DAYNAME(created_at)'))->get()->keyBy('day_of_week');
+
 
         // Get the total number of copies printed today
         $todayCopies = DB::table('trainings')
@@ -87,8 +88,9 @@ class UserController extends Controller
         return view('user.admin-sales', [
             'predictions' => $predictions,
             'totalPredictedCopies' => $totalPredictedCopies,
-            'activities' => $activities
+            'activities' => $activities->toArray()
         ]);
+
     }
 
 

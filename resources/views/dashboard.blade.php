@@ -124,8 +124,8 @@
       @elseif (auth()->user()->role == 'admin')
         <!-- Admin View -->
         <!-- Content -->
-        <div class="w-full">
-          <div class="p-4 sm:p-6 space-y-2 sm:space-y-6 ">
+        <div class="w-full h-full">
+          <div class="p-4 sm:p-6 space-y-2 sm:space-y-6">
             <!-- Grid -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
@@ -150,7 +150,7 @@
                         <span
                           class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm dark:bg-neutral-700"
                           role="tooltip">
-                          The number of users
+                          The number of daily users
                         </span>
                       </div>
                     </div>

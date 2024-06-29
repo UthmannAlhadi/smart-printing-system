@@ -92,7 +92,7 @@
                   <td></td>
                   <td class="px-6 text-gray-900 text-opacity-50 text-xs">
                     <p>Upload 1 document per print job</p>
-                    <p>Only pdf, doc, docx, jpeg, jpg and png are allowed</p>
+                    <p>Only pdf, and docx are allowed</p>
                   </td>
                 </tr>
                 <tr>

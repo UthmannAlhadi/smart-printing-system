@@ -59,10 +59,10 @@ class TrainingController extends Controller
             $pdfFilename = $filename . '.pdf';
             $tempPath = storage_path('app/temp');
 
-            // Ensure the temp directory exists
-            if (!File::isDirectory($tempPath)) {
-                File::makeDirectory($tempPath, 0777, true, true);
-            }
+            // // Ensure the temp directory exists
+            // if (!File::isDirectory($tempPath)) {
+            //     File::makeDirectory($tempPath, 0777, true, true);
+            // }
             // Ensure the directory exists
             $path = public_path('images/trainings');
             if (!File::isDirectory($path)) {
